@@ -120,3 +120,8 @@ It was created using Python along with the Faker library, with realistic Indian 
 The dataset includes about 6150 order records, 600 customer records, and 180 product records spread across three connected tables, built specifically so I could practice cleaning, validation, lookups across multiple tables, and dashboard building all within one coherent project rather than several disconnected exercises.
 
 Every formula, cleaning decision, and dashboard design choice in this project is my own work, built and verified manually in Excel on top of this dataset.
+
+## Author
+
+Pusplata Singh
+[LinkedIn](https://linkedin.com/in/pusplatasingh) | pusplatasingh1104@gmail.com
