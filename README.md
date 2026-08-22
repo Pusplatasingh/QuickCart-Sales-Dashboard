@@ -102,13 +102,13 @@ I converted the cleaned data into a proper Excel Table so it grows automatically
 
 ## About The Dataset (Full Disclosure)
 
-The dataset used in this project is AI generated synthetic data, not real transaction data from an actual company. I want to be upfront about this rather than let anyone assume otherwise.
+The dataset used in this project is AI generated synthetic data, not real transaction data from an actual company. I want to be upfront about this rather than let anyone assume otherwise
 
-It was created using Python along with the Faker library, with realistic Indian names, cities, and product categories, and a fixed random seed so the results are reproducible. The messiness in the data (duplicate rows, blank rows, inconsistent text, missing values, text stored numbers) was deliberately injected on purpose, to simulate the kind of real world data quality problems an analyst actually runs into on the job.
+It was created using Python along with the Faker library, with realistic Indian names, cities, and product categories, and a fixed random seed so the results are reproducible. The messiness in the data (duplicate rows, blank rows, inconsistent text, missing values, text stored numbers) was deliberately injected on purpose, to simulate the kind of real world data quality problems an analyst actually runs into on the job
 
-The dataset includes about 6150 order records, 600 customer records, and 180 product records spread across three connected tables, built specifically so I could practice cleaning, validation, lookups across multiple tables, and dashboard building all within one coherent project rather than several disconnected exercises.
+The dataset includes about 6150 order records, 600 customer records, and 180 product records spread across three connected tables, built specifically so I could practice cleaning, validation, lookups across multiple tables, and dashboard building all within one coherent project rather than several disconnected exercises
 
-Every formula, cleaning decision, and dashboard design choice in this project is my own work, built and verified manually in Excel on top of this dataset.
+Every formula, cleaning decision, and dashboard design choice in this project is my own work, built and verified manually in Excel on top of this dataset
 
 ## Author
 
