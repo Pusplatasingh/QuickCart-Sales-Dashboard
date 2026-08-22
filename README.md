@@ -92,17 +92,6 @@ I converted the cleaned data into a proper Excel Table so it grows automatically
 | Dashboard_Data | The Pivot Table behind the dashboard |
 | Dashboard | Final KPI cards, chart, and slicers |
 
-## Repo Contents
-This repo keeps things simple and focused on the actual project.
-
-QuickCart_Sales_RAW.xlsx, the original messy data before any cleaning, kept as proof of the starting point.
-
-QuickCart_Sales_Project.xlsx, the final cleaned, calculated, enriched, and dashboard version.
-
-screenshots folder, images of the raw data, the cleaning process, and the final dashboard.
-
-README.md, this file.
-
 ## Screenshots
 
 ### Final dashboard
