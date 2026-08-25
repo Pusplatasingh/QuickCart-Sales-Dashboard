@@ -1,6 +1,6 @@
 # QuickCart Regional Sales Performance Dashboard
 
-An end to end Excel project where I took a messy, unusable order export and turned it into a clean, live dashboard that regional managers could actually use to make decisions.
+An end to end Excel project where I took a messy, unusable order export and turned it into a clean, live dashboard that regional managers could actually use to make decisions
 
 ## Tech & Skills Used
 
@@ -14,7 +14,7 @@ An end to end Excel project where I took a messy, unusable order export and turn
 
 ## What This Project Is About
 
-I got a raw weekly sales export that honestly looked unusable at first glance. No revenue column filled in, region names spelled five different ways, duplicate rows, blank rows, prices sometimes stored as text with a currency symbol attached. Customer and product info was just a bunch of ID codes, nothing a manager could actually read.
+I got a raw weekly sales export that honestly looked unusable at first glance. No revenue column filled in, region names spelled five different ways, duplicate rows, blank rows, prices sometimes stored as text with a currency symbol attached. Customer and product info was just a bunch of ID codes, nothing a manager could actually read
 
 My job in this project was to take that mess and turn it into something a business person could open, filter, and immediately understand. Below is a walk through of every problem I ran into and exactly how I solved it, written in plain language rather than textbook definitions.
 
@@ -23,30 +23,30 @@ My job in this project was to take that mess and turn it into something a busine
 ## Problem 1: The data could not be trusted yet
 
 **What was actually wrong**
-The sheet had 40 completely empty rows sitting randomly in between real data, and 186 rows that were exact duplicates of each other. On top of that, the Region, Payment Method, and Order Status columns had the same value typed in five or six different ways ("North", "north", "NORTH", "North " with a trailing space, even "N." as a shortcut).
+The sheet had 40 completely empty rows sitting randomly in between real data, and 186 rows that were exact duplicates of each other. On top of that, the Region, Payment Method, and Order Status columns had the same value typed in five or six different ways ("North", "north", "NORTH", "North " with a trailing space, even "N." as a shortcut)
 
 **How I tackled it**
-I never touched the original file directly, I worked on a copy so I always had the messy version as proof of the "before" state. I filtered for blank rows and deleted them. Then I used Excel's Remove Duplicates tool checking every column, which cleared out the 186 repeated rows. For the messy text columns, TRIM and PROPER alone were not enough since some entries were abbreviations or genuine spelling mistakes, so I layered in some IF logic to catch those specific cases too and map everything back to one clean, correct value.
+I never touched the original file directly, I worked on a copy so I always had the messy version as proof of the "before" state. I filtered for blank rows and deleted them. Then I used Excel's Remove Duplicates tool checking every column, which cleared out the 186 repeated rows. For the messy text columns, TRIM and PROPER alone were not enough since some entries were abbreviations or genuine spelling mistakes, so I layered in some IF logic to catch those specific cases too and map everything back to one clean, correct value
 
 ---
 
 ## Problem 2: Nobody could tell what the actual revenue was
 
 **What was actually wrong**
-The Total Amount column was completely empty for every single row. Worse, Quantity and Unit Price themselves were not reliable either. Some were missing, some had text like "Rs." stuck in front of the number, and a few even had negative values from what looked like typing mistakes.
+The Total Amount column was completely empty for every single row. Worse, Quantity and Unit Price themselves were not reliable either. Some were missing, some had text like "Rs." stuck in front of the number, and a few even had negative values from what looked like typing mistakes
 
 **How I tackled it**
-I built cleaned versions of Quantity and Unit Price first, stripping out currency text and forcing everything into real numbers, and fixing the negative values using ABS. Then I calculated Total Amount as Quantity times Unit Price, but wrapped the whole thing so that if either input was missing, it would not throw an error or silently skip that row. It would show 0 and also get flagged in a separate column as "Incomplete" so I never lost sight of how much of the total was based on real numbers versus how much was missing data.
+I built cleaned versions of Quantity and Unit Price first, stripping out currency text and forcing everything into real numbers, and fixing the negative values using ABS. Then I calculated Total Amount as Quantity times Unit Price, but wrapped the whole thing so that if either input was missing, it would not throw an error or silently skip that row. It would show 0 and also get flagged in a separate column as "Incomplete" so I never lost sight of how much of the total was based on real numbers versus how much was missing data
 
 ---
 
 ## Problem 3: The data was just codes, nothing a manager could read
 
 **What was actually wrong**
-Every order only referenced a Customer ID like "C1572" and a combined product code like "SKU P1002 ELE Pro". None of that means anything to someone trying to understand which customers or products actually drive revenue.
+Every order only referenced a Customer ID like "C1572" and a combined product code like "SKU P1002 ELE Pro". None of that means anything to someone trying to understand which customers or products actually drive revenue
 
 **How I tackled it**
-First I pulled apart the product code into its individual pieces (Product ID, category, variant) using text functions, since the code always followed the same pattern. Then I used XLOOKUP to bring in the actual product name, category, and price from the Products sheet. For customer info, I deliberately used INDEX plus MATCH instead, mainly to show I understand both approaches and when each one makes sense, since INDEX plus MATCH works in older Excel versions and does not break if columns get rearranged later. Any row with a missing Customer ID got a clear "No Customer ID" label instead of a confusing error, so that gap stayed visible rather than hidden.
+First I pulled apart the product code into its individual pieces (Product ID, category, variant) using text functions, since the code always followed the same pattern. Then I used XLOOKUP to bring in the actual product name, category, and price from the Products sheet. For customer info, I deliberately used INDEX plus MATCH instead, mainly to show I understand both approaches and when each one makes sense, since INDEX plus MATCH works in older Excel versions and does not break if columns get rearranged later. Any row with a missing Customer ID got a clear "No Customer ID" label instead of a confusing error, so that gap stayed visible rather than hidden
 
 ---
 
@@ -63,10 +63,10 @@ I built a small Reference List sheet holding the correct spelling for every Regi
 ## Problem 5: There was no live way to actually look at this data
 
 **What was actually wrong**
-Someone had to manually rebuild a summary report every single week for regional managers, which is slow and easy to mess up.
+Someone had to manually rebuild a summary report every single week for regional managers, which is slow and easy to mess up
 
 **How I tackled it**
-I converted the cleaned data into a proper Excel Table so it grows automatically as new rows get added. Then I built a Pivot Table breaking revenue and order count down by Region and Status, added Slicers for Region, Status, and Loyalty Tier so anyone can filter with one click, and linked a Pivot Chart to it so the visual updates live too. On top I added four KPI cards summarizing Total Revenue, Total Orders, Cancellation Rate, and a Data Completeness Rate, that last one specifically to be upfront about how much of the data had missing customer info instead of quietly hiding it.
+I converted the cleaned data into a proper Excel Table so it grows automatically as new rows get added. Then I built a Pivot Table breaking revenue and order count down by Region and Status, added Slicers for Region, Status, and Loyalty Tier so anyone can filter with one click, and linked a Pivot Chart to it so the visual updates live too. On top I added four KPI cards summarizing Total Revenue, Total Orders, Cancellation Rate, and a Data Completeness Rate, that last one specifically to be upfront about how much of the data had missing customer info instead of quietly hiding it
 
 ---
 
@@ -102,13 +102,13 @@ I converted the cleaned data into a proper Excel Table so it grows automatically
 
 ## About The Dataset (Full Disclosure)
 
-The dataset used in this project is AI generated synthetic data, not real transaction data from an actual company. I want to be upfront about this rather than let anyone assume otherwise.
+The dataset used in this project is AI generated synthetic data, not real transaction data from an actual company. I want to be upfront about this rather than let anyone assume otherwise
 
-It was created using Python along with the Faker library, with realistic Indian names, cities, and product categories, and a fixed random seed so the results are reproducible. The messiness in the data (duplicate rows, blank rows, inconsistent text, missing values, text stored numbers) was deliberately injected on purpose, to simulate the kind of real world data quality problems an analyst actually runs into on the job.
+It was created using Python along with the Faker library, with realistic Indian names, cities, and product categories, and a fixed random seed so the results are reproducible. The messiness in the data (duplicate rows, blank rows, inconsistent text, missing values, text stored numbers) was deliberately injected on purpose, to simulate the kind of real world data quality problems an analyst actually runs into on the job
 
-The dataset includes about 6150 order records, 600 customer records, and 180 product records spread across three connected tables, built specifically so I could practice cleaning, validation, lookups across multiple tables, and dashboard building all within one coherent project rather than several disconnected exercises.
+The dataset includes about 6150 order records, 600 customer records, and 180 product records spread across three connected tables, built specifically so I could practice cleaning, validation, lookups across multiple tables, and dashboard building all within one coherent project rather than several disconnected exercises
 
-Every formula, cleaning decision, and dashboard design choice in this project is my own work, built and verified manually in Excel on top of this dataset.
+Every formula, cleaning decision, and dashboard design choice in this project is my own work, built and verified manually in Excel on top of this dataset
 
 ## Author
 
