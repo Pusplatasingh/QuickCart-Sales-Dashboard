@@ -109,12 +109,12 @@ I converted the cleaned data into a proper Excel Table so it grows automatically
 
 ## Skills Demonstrated
 
-- **Data cleaning at scale** — removing duplicates and blanks, standardizing inconsistent text entries across thousands of rows
-- **Defensive formula design** — calculations that degrade gracefully (flagging "Incomplete" instead of erroring or hiding gaps)
-- **Multi-table lookups** — XLOOKUP and INDEX + MATCH used deliberately, matched to the right context
-- **Data governance** — Data Validation dropdowns to prevent future inconsistency at the point of entry
-- **Dashboard building** — Pivot Tables, Pivot Charts, Slicers, and KPI cards designed for a non-technical audience
-- **Transparency in reporting** — surfacing data quality (Completeness Rate) rather than masking it
+- **Data cleaning at scale** : removing duplicates and blanks, standardizing inconsistent text entries across thousands of rows
+- **Defensive formula design** : calculations that degrade gracefully (flagging "Incomplete" instead of erroring or hiding gaps)
+- **Multi-table lookups** : XLOOKUP and INDEX + MATCH used deliberately, matched to the right context
+- **Data governance** : Data Validation dropdowns to prevent future inconsistency at the point of entry
+- **Dashboard building** : Pivot Tables, Pivot Charts, Slicers, and KPI cards designed for a non-technical audience
+- **Transparency in reporting** : surfacing data quality (Completeness Rate) rather than masking it
 
 ## Screenshots
 
@@ -128,7 +128,7 @@ I converted the cleaned data into a proper Excel Table so it grows automatically
 
 The dataset used in this project is AI-generated synthetic data, not real transaction data from an actual company. I want to be upfront about that rather than let anyone assume otherwise.
 
-It was created using Python and the Faker library, with realistic Indian names, cities, and product categories, and a fixed random seed so results are reproducible. The messiness in the data — duplicate rows, blank rows, inconsistent text, missing values, text-formatted numbers — was deliberately injected to simulate the kind of real-world data quality problems an analyst actually runs into on the job.
+It was created using Python and the Faker library, with realistic Indian names, cities, and product categories, and a fixed random seed so results are reproducible. The messiness in the data duplicate rows, blank rows, inconsistent text, missing values, text-formatted numbers — was deliberately injected to simulate the kind of real-world data quality problems an analyst actually runs into on the job.
 
 The dataset includes roughly 6,150 order records, 600 customer records, and 180 product records spread across three connected tables, built specifically so I could practice cleaning, validation, cross-table lookups, and dashboard building within one coherent project rather than several disconnected exercises.
 
