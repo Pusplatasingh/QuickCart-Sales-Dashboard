@@ -38,10 +38,10 @@ My job was to take that mess and turn it into something a business user could op
 ## Problem 1: The data could not be trusted yet
 
 **What was wrong**
-The sheet had 40 completely empty rows scattered randomly among real data, and 186 rows that were exact duplicates of each other. On top of that, the Region, Payment Method, and Order Status columns had the same value typed in five or six different ways — "North," "north," "NORTH," "North " with a trailing space, even "N." as a shortcut.
+The sheet had 40 completely empty rows scattered randomly among real data, and 186 rows that were exact duplicates of each other. On top of that, the Region, Payment Method, and Order Status columns had the same value typed in five or six different ways "North," "north," "NORTH," "North " with a trailing space, even "N." as a shortcut.
 
 **How I fixed it**
-I never touched the original file directly — I worked on a copy, so I always had the messy version as proof of the "before" state. I filtered for blank rows and deleted them, then ran Excel's Remove Duplicates tool across every column, which cleared out the 186 repeated rows. For the messy text columns, TRIM and PROPER alone weren't enough since some entries were abbreviations or genuine spelling mistakes, so I layered in IF logic to catch those specific cases and map everything back to one clean, correct value.
+I never touched the original file directly I worked on a copy, so I always had the messy version as proof of the "before" state. I filtered for blank rows and deleted them, then ran Excel's Remove Duplicates tool across every column, which cleared out the 186 repeated rows. For the messy text columns, TRIM and PROPER alone weren't enough since some entries were abbreviations or genuine spelling mistakes, so I layered in IF logic to catch those specific cases and map everything back to one clean, correct value.
 
 ---
 
