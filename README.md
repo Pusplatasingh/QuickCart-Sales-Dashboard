@@ -48,10 +48,10 @@ I never touched the original file directly I worked on a copy, so I always had t
 ## Problem 2: Nobody could tell what the actual revenue was
 
 **What was wrong**
-The Total Amount column was completely empty for every row. Worse, Quantity and Unit Price weren't reliable inputs either — some were missing, some had text like "Rs." stuck in front of the number, and a few even had negative values from apparent typing mistakes.
+The Total Amount column was completely empty for every row. Worse, Quantity and Unit Price weren't reliable inputs either some were missing, some had text like "Rs." stuck in front of the number, and a few even had negative values from apparent typing mistakes.
 
 **How I fixed it**
-I built cleaned versions of Quantity and Unit Price first, stripping out currency text and forcing everything into real numbers, and correcting negative values with ABS. I then calculated Total Amount as Quantity × Unit Price, wrapped so that if either input was missing, it wouldn't throw an error or silently skip the row — it would show 0 and get flagged in a separate column as "Incomplete." That way I never lost sight of how much of the total was based on real numbers versus missing data.
+I built cleaned versions of Quantity and Unit Price first, stripping out currency text and forcing everything into real numbers, and correcting negative values with ABS. I then calculated Total Amount as Quantity × Unit Price, wrapped so that if either input was missing, it wouldn't throw an error or silently skip the row it would show 0 and get flagged in a separate column as "Incomplete." That way I never lost sight of how much of the total was based on real numbers versus missing data.
 
 ---
 
